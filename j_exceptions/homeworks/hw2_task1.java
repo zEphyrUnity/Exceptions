@@ -2,7 +2,7 @@
 //Ввод текста вместо числа не должно приводить к падению приложения, вместо этого, необходимо повторно запросить у
 //пользователя ввод данных.
 
-package homeworks;
+package j_exceptions.homeworks;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

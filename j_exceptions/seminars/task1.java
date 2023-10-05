@@ -10,7 +10,7 @@
 // пользователя, вызовет первый, обработает возвращенное значение и покажет читаемый результат пользователю. Например,
 // если вернулся -2, пользователю выведется сообщение: "Искомый элемент не найден".
 
-package seminars;
+package j_exceptions.seminars;
 
 import java.io.BufferedReader;
 import java.io.IOException;

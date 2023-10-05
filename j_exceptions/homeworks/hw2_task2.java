@@ -7,7 +7,7 @@
 //        System.out.println("Catching exception: " + e);
 //        }
 
-package homeworks;
+package j_exceptions.homeworks;
 
 public class hw2_task2 {
     public static void main(String[] args){

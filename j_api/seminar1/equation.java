@@ -1,4 +1,4 @@
-package j_api;
+package j_api.seminar1;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

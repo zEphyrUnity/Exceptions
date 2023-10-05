@@ -4,7 +4,7 @@
 // 1. Если в какой-то ячейке встретился null, то необходимо "оповестить" об этом пользователя.
 // 2. Если null встретились в нескольких ячейках, то идеально было бы все их "подсветить"
 
-package seminars;
+package j_exceptions.seminars;
 
 public class task3 {
     public static final String ANSI_RESET = "\u001B[0m";

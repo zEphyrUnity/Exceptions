@@ -1,7 +1,7 @@
 // Реализуйте метод, принимающий в качестве аргумента целочисленный массив.
 // Если длинна массива меньше некоторого заданного минимума, метод возвращает -1, в качестве ошибки, иначе длину массива
 
-package seminars;
+package j_exceptions.seminars;
 
 public class task0 {
     public static void main(String[] args) {

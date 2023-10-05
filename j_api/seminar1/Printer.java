@@ -1,4 +1,4 @@
-package j_api;
+package j_api.seminar1;
 
 public class Printer {
     public static void main(String[] args) {

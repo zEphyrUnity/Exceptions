@@ -1,7 +1,7 @@
 //Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку.
 //Пользователю должно показаться сообщение, что пустые строки вводить нельзя.
 
-package homeworks;
+package j_exceptions.homeworks;
 
 import java.util.Scanner;
 

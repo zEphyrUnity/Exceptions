@@ -1,4 +1,4 @@
-package homeworks;
+package j_exceptions.homeworks;
 
 import java.io.FileNotFoundException;
 
