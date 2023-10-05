@@ -1,4 +1,4 @@
-package lections;
+package j_exceptions.lections;
 
 import java.io.FileReader;
 import java.io.IOException;

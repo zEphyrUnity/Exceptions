@@ -5,7 +5,7 @@
 // Если нарушается одно из условий, метод должен бросить RuntimeException с сообщением об ошибке.
 
 
-package seminars;
+package j_exceptions.seminars;
 
 public class task2 {
     public static void main(String[] args) {

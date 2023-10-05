@@ -1,4 +1,4 @@
-package homeworks.attestation;
+package j_exceptions.homeworks.attestation;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package homeworks.attestation;
+package j_exceptions.homeworks.attestation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
