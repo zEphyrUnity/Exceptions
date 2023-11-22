@@ -19,7 +19,7 @@ public class Controler {
     private final StudentView studentView = new StudentView();
     private final StudyGroupView studyGroupView = new StudyGroupView();
 
-    List<User> studyGroup = new ArrayList<>();
+    private List<User> studyGroup = new ArrayList<>();
 
     public void createStudent(String firstName, String secondName, String lastName, String dateB) {
         service.create(firstName, secondName, lastName, dateB, Type.STUDENT);

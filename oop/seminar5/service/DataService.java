@@ -2,6 +2,7 @@ package oop.seminar5.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import oop.seminar5.data.User;
 import oop.seminar5.data.Type;
@@ -22,7 +23,8 @@ public class DataService {
         if (Type.STUDENT == type) {
             Student student = new Student(firstName, secondName, lastName, dateB, id);
             userList.add(student);
-        } else if (Type.TEACHER == type) {
+        }
+        else if (Type.TEACHER == type) {
             Teacher teacher = new Teacher(firstName, secondName, lastName, dateB, id);
             userList.add(teacher);
         }
@@ -40,7 +42,6 @@ public class DataService {
             if (user instanceof Student && itsStudent) {
                 lastId = ((Student) user).getStudentId() + 1;
             }
-
         }
 
         return lastId;
@@ -62,9 +63,7 @@ public class DataService {
         return null;
     }
 
-    public List<User> getAllUser() {
-        return userList;
-    }
+    public List<User> getAllUser() { return userList; }
 
     public List<Student> getAllStudent() {
         List<Student> resultList = new ArrayList<>();
@@ -83,4 +82,5 @@ public class DataService {
 
         return null;
     }
+
 }
