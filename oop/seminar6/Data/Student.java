@@ -3,8 +3,7 @@ package oop.seminar6.Data;
 public class Student extends User {
     private int studentId;
 
-    public Student(String firstName, String secondName, String lastName,
-                   String dateB, int studentId) {
+    public Student(String firstName, String secondName, String lastName, String dateB, int studentId) {
         super(firstName, secondName, lastName, dateB);
         this.studentId = studentId;
     }
