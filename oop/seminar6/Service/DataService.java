@@ -7,16 +7,17 @@ import oop.seminar6.Data.Type;
 import oop.seminar6.Data.Teacher;
 import oop.seminar6.Data.Student;
 
+
 public class DataService {
-    private List<User> userList;
+    private final List<User> userList;
 
     public DataService() {
         this.userList = new ArrayList<>();
     }
 
-    public void create(String firstName, String secondName,
-                       String lastName, String dateB, Type type){
+    public void create(String firstName, String secondName, String lastName, String dateB, Type type){
         int id = getFreeId(type);
+
         if(Type.STUDENT == type){
             Student student = new Student(firstName,secondName,lastName,dateB,id);
             userList.add(student);
@@ -29,42 +30,54 @@ public class DataService {
 
     private int getFreeId(Type type){
         boolean itsStudent = Type.STUDENT == type;
+
         int lastId = 1;
             for (User user : userList) {
                 if(user instanceof Teacher && !itsStudent){
                     lastId = ((Teacher) user).getTeacherId() + 1;
                 }
+
                 if(user instanceof Student && itsStudent){
                     lastId = ((Student) user).getStudentId() + 1;
                 }
-
             }
+
         return lastId;
     }
 
     public User getUserById(Type type, int id){
         boolean itsStudent = Type.STUDENT == type;
+
         for(User user: userList){
-            if(user instanceof Teacher && !itsStudent && ((Teacher) user).getTeacherId() == id){
+            if(user instanceof Teacher && !itsStudent && ((Teacher) user).getTeacherId() == id)
                 return user;
-            }
-            if(user instanceof Student && itsStudent && ((Student) user).getStudentId() == id){
+
+            if(user instanceof Student && itsStudent && ((Student) user).getStudentId() == id)
                 return user;
-            }
         }
+
         return null;
     }
+
     public List<User> getAllUser(){
         return userList;
     }
 
-    public List<User> getAllStudent(){
-        List<User> resultList = new ArrayList<>();
-        for(User user : userList){
-            if (user instanceof Student){
-                resultList.add(user);
-            }
-        }
+    public Teacher getTeacher() {
+        for (User teacher : userList)
+            if (teacher instanceof Teacher)
+                return (Teacher) teacher;
+
+        return null;
+    }
+
+    public List<Student> getAllStudent(){
+        List<Student> resultList = new ArrayList<>();
+
+        for(User user : userList)
+            if (user instanceof Student)
+                resultList.add((Student)user);
+
         return resultList;
     }
 }
