@@ -20,12 +20,11 @@ public class ConsoleView implements iView {
     Draw draw = new Draw();
 
     enum Action {
-        INVALID,
+        EXIT,
         CREATE_TOY_BOX,
         SHOW_TOYS,
         MAKE_PRIZE_DRAW,
         CHANGE_TOY_WEIGHT,
-        EXIT
     }
 
     public ConsoleView(iLotteryBasket lotteryBasket, String path, iFileWriter prizeDraw, iToyBoxCreator toyBoxCreator) {
@@ -70,7 +69,7 @@ public class ConsoleView implements iView {
         System.out.println("2: Показать игрушки");
         System.out.println("3: Сделать розыгрыш игрушки");
         System.out.println("4. Изменить вес игрушки по id");
-        System.out.println("5: Выйти");
+        System.out.println("0: Выйти");
     }
 
 
@@ -88,7 +87,7 @@ public class ConsoleView implements iView {
 
     @Override
     public void showToys() {
-        System.out.println(lotteryBasket.getToysString());
+        System.out.println(lotteryBasket.toString());
     }
 }
 

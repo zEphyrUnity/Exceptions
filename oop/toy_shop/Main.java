@@ -2,7 +2,6 @@ package oop.toy_shop;
 
 import oop.toy_shop.Controller.LotteryConsoleController;
 import oop.toy_shop.Model.LotteryBasket;
-import oop.toy_shop.Model.Draw;
 import oop.toy_shop.Model.Toy;
 import oop.toy_shop.Model.iLotteryBasket;
 import oop.toy_shop.Service.FileWriteService;
