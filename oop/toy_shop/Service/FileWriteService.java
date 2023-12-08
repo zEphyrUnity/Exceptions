@@ -1,5 +1,6 @@
 package oop.toy_shop.Service;
 
+import oop.toy_shop.Model.Draw;
 import oop.toy_shop.Model.Toy;
 import oop.toy_shop.Model.iLotteryBasket;
 
@@ -9,19 +10,19 @@ import java.io.IOException;
 
 public class FileWriteService implements iFileWriter {
     @Override
-    public void prizeWriter(iLotteryBasket basket, String filePath){
-        Toy prize;
+    public void prizeWriter(iLotteryBasket basket, String filePath, Draw draw){
+        Toy prize = draw.prizeDraw(basket.getLotteryBasket());
 
-        try {
-            prize = basket.getLotteryBasket().poll();
-        }catch (NullPointerException e){
-            System.out.println("Ошибка выдачи приза: " + e.getMessage());
-
-            return;
-        }
+//        try {
+//            prize = basket.getLotteryBasket().poll();
+//        }catch (NullPointerException e){
+//            System.out.println("Ошибка выдачи приза: " + e.getMessage());
+//
+//            return;
+//        }
 
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true))) {
-            if(prize == null)
+            if(basket.getLotteryBasket() == null)
                 throw new NullPointerException();
 
             bufferedWriter.write(prize.getName() + " " + prize.getId() + " " + prize.getWeight());

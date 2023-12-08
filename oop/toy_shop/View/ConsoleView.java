@@ -1,5 +1,6 @@
 package oop.toy_shop.View;
 
+import oop.toy_shop.Model.Draw;
 import oop.toy_shop.Model.Toy;
 import oop.toy_shop.Model.iLotteryBasket;
 import oop.toy_shop.Service.WeightChangerService;
@@ -16,6 +17,7 @@ public class ConsoleView implements iView {
     iFileWriter prizeDraw;
     iToyBoxCreator toyBoxCreator;
     iWeightChanger weightChanger = new WeightChangerService();
+    Draw prize = new Draw();
 
     public ConsoleView(iLotteryBasket lotteryBasket, String path, iFileWriter prizeDraw, iToyBoxCreator toyBoxCreator) {
         this.lotteryBasket = lotteryBasket;
@@ -52,7 +54,7 @@ public class ConsoleView implements iView {
                     showToys();
                     break;
                 case 3:
-                    prizeDraw.prizeWriter(lotteryBasket, path);
+                    prizeDraw.prizeWriter(lotteryBasket, path, prize);
                     break;
                 case 4:
                     weightChanger.changeWeight(scanner, lotteryBasket);
