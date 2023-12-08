@@ -13,14 +13,6 @@ public class FileWriteService implements iFileWriter {
     public void prizeWriter(iLotteryBasket basket, String filePath, Draw draw){
         Toy prize = draw.prizeDraw(basket.getLotteryBasket());
 
-//        try {
-//            prize = basket.getLotteryBasket().poll();
-//        }catch (NullPointerException e){
-//            System.out.println("Ошибка выдачи приза: " + e.getMessage());
-//
-//            return;
-//        }
-
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true))) {
             if(basket.getLotteryBasket() == null)
                 throw new NullPointerException();

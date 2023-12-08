@@ -1,7 +1,6 @@
 package oop.toy_shop.View;
 
 import oop.toy_shop.Model.Draw;
-import oop.toy_shop.Model.Toy;
 import oop.toy_shop.Model.iLotteryBasket;
 import oop.toy_shop.Service.WeightChangerService;
 import oop.toy_shop.Service.iFileWriter;
@@ -11,13 +10,23 @@ import oop.toy_shop.Service.iWeightChanger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class ConsoleView implements iView {
     iLotteryBasket lotteryBasket;
     String path;
     iFileWriter prizeDraw;
     iToyBoxCreator toyBoxCreator;
     iWeightChanger weightChanger = new WeightChangerService();
-    Draw prize = new Draw();
+    Draw draw = new Draw();
+
+    enum Action {
+        INVALID,
+        CREATE_TOY_BOX,
+        SHOW_TOYS,
+        MAKE_PRIZE_DRAW,
+        CHANGE_TOY_WEIGHT,
+        EXIT
+    }
 
     public ConsoleView(iLotteryBasket lotteryBasket, String path, iFileWriter prizeDraw, iToyBoxCreator toyBoxCreator) {
         this.lotteryBasket = lotteryBasket;
@@ -31,35 +40,24 @@ public class ConsoleView implements iView {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("1: Создать коробку с игрушками");
-            System.out.println("2: Показать игрушки");
-            System.out.println("3: Сделать розыгрыш игрушки");
-            System.out.println("4. Изменить вес игрушки по id");
-            System.out.println("0: Выйти");
+            displayMenuOptions();
 
-            int choice;
-            try {
-                choice = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Неправильный ввод, введите число.");
-                scanner.next();
-                continue;
-            }
+            Action choice = getUserChoice(scanner);
 
             switch (choice) {
-                case 1:
+                case CREATE_TOY_BOX:
                     toyBoxCreator.createToyBox(scanner, lotteryBasket);
                     break;
-                case 2:
+                case SHOW_TOYS:
                     showToys();
                     break;
-                case 3:
-                    prizeDraw.prizeWriter(lotteryBasket, path, prize);
+                case MAKE_PRIZE_DRAW:
+                    prizeDraw.prizeWriter(lotteryBasket, path, draw);
                     break;
-                case 4:
+                case CHANGE_TOY_WEIGHT:
                     weightChanger.changeWeight(scanner, lotteryBasket);
                     break;
-                case 0:
+                case EXIT:
                     return;
                 default:
                     System.out.println("Неправильный выбор, попробуйте еще раз.");
@@ -67,11 +65,30 @@ public class ConsoleView implements iView {
         }
     }
 
-    @Override
-    public void showToys() {
-        for(Toy toy: lotteryBasket.getLotteryBasket()){
-                System.out.println(toy.getName() + " " + toy.getId() + " " + toy.getWeight());
+    private void displayMenuOptions() {
+        System.out.println("1: Создать коробку с игрушками");
+        System.out.println("2: Показать игрушки");
+        System.out.println("3: Сделать розыгрыш игрушки");
+        System.out.println("4. Изменить вес игрушки по id");
+        System.out.println("5: Выйти");
+    }
+
+
+    private Action getUserChoice(Scanner scanner) {
+        while (true) {
+            try {
+                int choice = scanner.nextInt();
+                return Action.values()[choice];
+            } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
+                System.out.println("Неправильный ввод, введите число.");
+                scanner.next();
             }
         }
     }
+
+    @Override
+    public void showToys() {
+        System.out.println(lotteryBasket.getToysString());
+    }
+}
 

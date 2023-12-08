@@ -14,9 +14,9 @@ import oop.toy_shop.Service.iToyBoxCreator;
 
 public class Main {
     public static void main(String[] args) {
-        Toy toy1 = new Toy("sega", 1, 6);
-        Toy toy2 = new Toy("snes", 2, 5);
-        Toy toy3 = new Toy("dreamcast", 3, 2);
+        Toy toy1 = new Toy("Сега", 1, 7);
+        Toy toy2 = new Toy("Супер нинтендо", 2, 5);
+        Toy toy3 = new Toy("Сони плэйстэйшн", 3, 2);
 
         iLotteryBasket lotteryBasket = new LotteryBasket();
         lotteryBasket.getLotteryBasket().add(toy1);

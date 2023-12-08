@@ -30,15 +30,16 @@ public class WeightChangerService implements iWeightChanger {
                     int toyId = getInput.getInputAsInt(scanner, "Введите id: ", "Неверный формат данных");
 
                     for (Toy toy : lotteryBasket.getLotteryBasket())
-                            if (toyId == toy.getId()) {
-                                System.out.println("Игрушка " + toy.getId() + " " +
-                                        toy.getName() + " " + toy.getWeight() + " найдена");
+                        if (toyId == toy.getId()) {
+                            System.out.println("Игрушка " + toy.getId() + " " +
+                                    toy.getName() + " " + toy.getWeight() + " найдена");
 
-                                int newWeight = getInput.getInputAsInt(scanner, "Введите вес: ", "Неверный формат данных");
-                                toy.setWeight(newWeight);
-                            } else {
-                                System.out.println("Игрушка с данным id не найдена");
-                            }
+                            int newWeight = getInput.getInputAsInt(scanner, "Введите вес: ", "Неверный формат данных");
+                            toy.setWeight(newWeight);
+
+                            return;
+                        }
+
                     break;
                 case 0:
                     addMenuStatus = false;

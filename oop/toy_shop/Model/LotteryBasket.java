@@ -10,4 +10,17 @@ public class LotteryBasket implements iLotteryBasket {
     public PriorityQueue<Toy> getLotteryBasket() {
         return lotteryBasket;
     }
+
+    @Override
+    public String getToysString() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n");
+        for (Toy toy : getLotteryBasket()) {
+            sb.append(toy.getName()).append(" ")
+                    .append(toy.getId()).append(" ")
+                    .append(toy.getWeight()).append("\n");
+        }
+        return sb.toString();
+    }
 }
